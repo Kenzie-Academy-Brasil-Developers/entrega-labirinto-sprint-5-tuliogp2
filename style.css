@@ -1,0 +1,71 @@
+
+html, body, h1, div, p, input, img{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(206, 174, 133);
+}
+
+#labirinto{
+    width: fit-content;
+    background-image: url(img/field.png);
+    margin: auto;
+}
+
+#player{
+    width: 50px;
+    height: 50px;
+    background-image: url(img/wmn3_rt2.gif);
+    animation-duration: 200ms;
+}
+
+.row{
+    display: flex;
+}
+
+.cell{
+    width: 50px;
+    height: 50px;
+}
+.wall{
+    background-image: url(img/tijolo.png);
+}
+
+.start{
+    background-color: rgb(213, 224, 119);
+}
+
+.finish{
+    background-color: rgb(83, 253, 120);
+}
+
+#mensagem{
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    width: 80%;
+    height: 650px;
+    background-image: url(img/youwin.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#mensagem input{
+    background-color: rgb(120, 243, 4); 
+    padding: 10px 30px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(31 29 29);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 85%; 
+    cursor: pointer;
+}
