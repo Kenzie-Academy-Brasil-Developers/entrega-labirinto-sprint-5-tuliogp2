@@ -43,7 +43,24 @@ body{
     background-color: rgb(83, 253, 120);
 }
 
-#mensagem{
+#mensagemAlerta {
+    display: none;
+    position: absolute;
+    width: 80%;
+    background-color: yellow;
+    height: 125px;
+    top: 40%;
+    left: 140px;
+    padding-top: 10px;
+    font-size: 50px;
+    font-weight: bolder;
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+}
+
+
+#mensagemVitoria{
     display: none;
     position: absolute;
     top: 10px;
@@ -56,7 +73,22 @@ body{
     background-size: 100% 100%;
 }
 
-#mensagem input{
+#mensagemAlerta input{
+    background-color: rgb(120, 243, 4); 
+    padding: 8px 25px 8px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(31 29 29);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 55%;
+    left: 50%;
+    cursor: pointer;
+}
+
+#mensagemVitoria input {
     background-color: rgb(120, 243, 4); 
     padding: 10px 30px 10px;
     border-radius: 10px;

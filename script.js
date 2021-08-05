@@ -1,6 +1,8 @@
 const labirinto = document.getElementById('labirinto');
-const msg = document.getElementById('mensagem');
+const msgV = document.getElementById('mensagemVitoria');
+const msgA = document.getElementById('mensagemAlerta');
 const button = document.getElementById('button');
+const ok = document.getElementById('ok');
 const imgPlayer = document.getElementById('player');
 
 const map = [
@@ -32,7 +34,7 @@ for (let i = 0; i < map.length; i++) {
     row.classList.add('row');
 
     for (let j = 0; j < map[i].length; j++) {
-        
+
         let brick = map[i][j];
         let div = document.createElement('div');
         div.classList.add('cell');
@@ -58,11 +60,14 @@ for (let i = 0; i < map.length; i++) {
 
 //-------- Posicionar player ----------
 
-let playerPosition = document.querySelector("[data-row-number='" + linha + "'][data-column-number='" + coluna + "']");
-playerPosition.appendChild(player);
+function colocarPlayer() {
+    let playerPosition = document.querySelector("[data-row-number='" + linha + "'][data-column-number='" + coluna + "']");
+    playerPosition.appendChild(player);
+}
+colocarPlayer()
 
 //------- Movimentação do player --------
-  
+
 const movePlayer = (key) => {
 
     if (key === 'ArrowDown') {
@@ -77,8 +82,8 @@ const movePlayer = (key) => {
         }
         linha++;
 
-    } else if (key === 'ArrowUp') {        
-        
+    } else if (key === 'ArrowUp') {
+
         press += 1;
 
         if (press % 2 == 0) {
@@ -92,7 +97,7 @@ const movePlayer = (key) => {
     } else if (key === 'ArrowRight') {
 
         press += 1
-        
+
         if (press % 2 == 0) {
             imgPlayer.style.backgroundImage = "url('img/wmn3_rt1.gif')";
 
@@ -100,8 +105,9 @@ const movePlayer = (key) => {
             imgPlayer.style.backgroundImage = "url('img/wmn3_rt2.gif')";
         }
         coluna++;
-        
+
     } else if (key === 'ArrowLeft') {
+
 
         press += 1
 
@@ -112,11 +118,15 @@ const movePlayer = (key) => {
             imgPlayer.style.backgroundImage = "url('img/wmn3_lf2.gif')";
         }
         coluna--;
+        if (coluna < 0) {
+            document.removeEventListener('keydown', moveFunction);
+            msgA.style.display = 'block'
+        }
     }
 }
 
 const correction = (key) => {
-    
+
     if (key === 'ArrowDown') {
         linha--;
 
@@ -149,10 +159,10 @@ document.addEventListener('keydown', moveFunction = (event) => {
     } else {
         playerPosition.appendChild(player);
     }
-    
+
     if (playerPosition.classList.contains('finish')) {
 
-        msg.style.display = 'block'; //mensagem de vitória
+        msgV.style.display = 'block'; //mensagem de vitória
         let audio = new Audio('sound/you-win.mp3');
         audio.play();
         document.removeEventListener('keydown', moveFunction);
@@ -162,11 +172,19 @@ document.addEventListener('keydown', moveFunction = (event) => {
 //------- Reiniciar o jogo
 
 button.addEventListener('click', () => {
-    
+
     linha = 9;
     coluna = 0;
     playerPosition = document.querySelector("[data-row-number='" + linha + "'][data-column-number='" + coluna + "']");
     playerPosition.appendChild(player);
-    msg.style.display = 'none';
+    msgV.style.display = 'none';
+    document.addEventListener('keydown', moveFunction);
+})
+
+ok.addEventListener('click', () => {
+    coluna++
+    colocarPlayer()
+    imgPlayer.style.backgroundImage = "url('img/wmn3_rt2.gif')";
+    msgA.style.display = 'none'
     document.addEventListener('keydown', moveFunction);
 })
