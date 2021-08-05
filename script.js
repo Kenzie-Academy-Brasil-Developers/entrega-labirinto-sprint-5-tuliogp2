@@ -1,7 +1,9 @@
 const labirinto = document.getElementById('labirinto');
 const msgV = document.getElementById('mensagemVitoria');
 const msgA = document.getElementById('mensagemAlerta');
+const comecar = document.getElementById('comecar');
 const button = document.getElementById('button');
+const inicio = document.getElementById('inicio')
 const ok = document.getElementById('ok');
 const imgPlayer = document.getElementById('player');
 
@@ -28,39 +30,43 @@ let coluna = 0;
 
 // ------ Gerar labirinto do jogo ------
 
-for (let i = 0; i < map.length; i++) {
+const gerarMapa = () => {
 
-    let row = document.createElement('div');
-    row.classList.add('row');
+    for (let i = 0; i < map.length; i++) {
 
-    for (let j = 0; j < map[i].length; j++) {
+        let row = document.createElement('div');
+        row.classList.add('row');
 
-        let brick = map[i][j];
-        let div = document.createElement('div');
-        div.classList.add('cell');
-        div.dataset.rowNumber = i;
-        div.dataset.columnNumber = j;
+        for (let j = 0; j < map[i].length; j++) {
 
-        if (brick === 'W') {
-            div.classList.add('wall');
+            let brick = map[i][j];
+            let div = document.createElement('div');
+            div.classList.add('cell');
+            div.dataset.rowNumber = i;
+            div.dataset.columnNumber = j;
 
-        } else if (brick === 'S') {
-            div.classList.add('start');
+            if (brick === 'W') {
+                div.classList.add('wall');
 
-        } else if (brick === 'F') {
-            div.classList.add('finish');
+            } else if (brick === 'S') {
+                div.classList.add('start');
 
-        } else {
-            div.classList.add('space');
+            } else if (brick === 'F') {
+                div.classList.add('finish');
+
+            } else {
+                div.classList.add('space');
+            }
+            row.appendChild(div);
         }
-        row.appendChild(div);
+        labirinto.appendChild(row);
     }
-    labirinto.appendChild(row);
 }
+gerarMapa()
 
 //-------- Posicionar player ----------
 
-function colocarPlayer() {
+const colocarPlayer = () => {
     let playerPosition = document.querySelector("[data-row-number='" + linha + "'][data-column-number='" + coluna + "']");
     playerPosition.appendChild(player);
 }
@@ -179,7 +185,7 @@ button.addEventListener('click', () => {
     playerPosition.appendChild(player);
     msgV.style.display = 'none';
     document.addEventListener('keydown', moveFunction);
-})
+});
 
 ok.addEventListener('click', () => {
     coluna++
@@ -187,4 +193,8 @@ ok.addEventListener('click', () => {
     imgPlayer.style.backgroundImage = "url('img/wmn3_rt2.gif')";
     msgA.style.display = 'none'
     document.addEventListener('keydown', moveFunction);
-})
+});
+
+comecar.addEventListener('click', () => {
+    inicio.style.display = 'none';
+});
