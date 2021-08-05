@@ -58,10 +58,10 @@ body{
 }
 
 #inicio {
-    background-image: url(img/yellow.jpg);
+    /* background-image: url(https://github.com/Kenzie-Academy-Brasil-Developers/entrega-labirinto-sprint-5-tuliogp2/blob/main/img/yellow.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: 100% 100%; */
     position: absolute;
     background-color: yellow;
     width: 100%;
