@@ -1,0 +1,144 @@
+
+html, body, h1, div, p, input, img{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    padding-top: 150px;
+    font-size: 80px;
+    font-family: 'Special Elite', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
+}
+
+p {
+    padding-top: 130px;
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(206, 174, 133);
+}
+
+#labirinto{
+    width: fit-content;
+    background-image: url(img/field.png);
+    margin: auto;
+}
+
+#player{
+    width: 50px;
+    height: 50px;
+    background-image: url(img/wmn3_rt2.gif);
+    animation-duration: 200ms;
+}
+
+.row{
+    display: flex;
+}
+
+.cell{
+    width: 50px;
+    height: 50px;
+}
+.wall{
+    background-image: url(img/tijolo.png);
+}
+
+.start{
+    background-color: rgb(213, 224, 119);
+}
+
+.finish{
+    background-color: rgb(83, 253, 120);
+}
+
+#inicio {
+    background-image: url(img/yellow.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    position: absolute;
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+}
+
+#inicio input {
+    background-color: rgb(120, 243, 4); 
+    padding: 8px 25px 8px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(31 29 29);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 70%;
+    left: 50%;
+    cursor: pointer;
+}
+
+#mensagemAlerta {
+    display: none;
+    position: absolute;
+    width: 80%;
+    background-color: yellow;
+    height: 125px;
+    top: 40%;
+    left: 140px;
+    padding-top: 10px;
+    font-size: 50px;
+    font-weight: bolder;
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+}
+
+
+#mensagemVitoria{
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    width: 80%;
+    height: 650px;
+    background-image: url(img/youwin.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#mensagemAlerta input{
+    background-color: rgb(120, 243, 4); 
+    padding: 8px 25px 8px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(31 29 29);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 55%;
+    left: 50%;
+    cursor: pointer;
+}
+
+#mensagemVitoria input {
+    background-color: rgb(120, 243, 4); 
+    padding: 10px 30px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(31 29 29);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 85%; 
+    cursor: pointer;
+}
+
